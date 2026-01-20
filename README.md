@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# tuck end box calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+a simple calculator for tuck end box packaging design dimensions.
 
-## Available Scripts
+## why i built this
 
-In the project directory, you can run:
+i was working on a packaging design project that needed 23 individual skus. each sku had different box dimensions, and i had to calculate all the panel measurements for each one. doing this manually was taking forever, so i built this app to speed things up. now i just input the box dimensions and get all the panel measurements instantly.
 
-### `npm start`
+## what it does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+this app calculates all the panel dimensions for a tuck end box based on three inputs:
+- width
+- length  
+- height
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![box layout diagram](public/images/box-layout.png)
 
-### `npm test`
+it gives you measurements for:
+- bottom panel
+- left and right side panels (with glue flaps and interior tuck flaps)
+- front and back panels (with dust flaps)
+- top panel (with side flaps)
+- front flap (with dust flaps)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+you can click any dimension to copy it to your clipboard.
 
-### `npm run build`
+## how to use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. enter your box dimensions in inches
+2. all panel measurements calculate automatically
+3. click any measurement to copy it
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## technical stuff
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+built with:
+- react
+- lucide-react (for icons)
 
-### `npm run eject`
+the app uses a standard 0.0787" (2mm) allowance for glue flaps and tolerances.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## deploy to vercel
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. push your code to github
+2. connect your repo to vercel
+3. deploy
 
-## Learn More
+that's it!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## note
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+tuck-in holes are constant at 1" × 0.0787" - you'll need to add those manually to your design.

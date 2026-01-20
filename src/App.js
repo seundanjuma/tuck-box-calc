@@ -93,6 +93,15 @@ export default function TuckBoxCalculator() {
             </div>
           </div>
 
+          <div className="mb-8 p-4 bg-gray-50 rounded-lg">
+            <h2 className="text-lg font-semibold text-gray-800 mb-3">Box Layout Reference</h2>
+            <img 
+              src="/images/box-layout.png" 
+              alt="Tuck end box layout diagram showing all panels" 
+              className="w-full max-w-2xl mx-auto rounded shadow-md"
+            />
+          </div>
+
           <div className="space-y-6">
             <Section title="Bottom Panel">
               <Dimension label="Bottom" value={`${dimensions.bottom.width.toFixed(4)}" × ${dimensions.bottom.height.toFixed(4)}"`} />
