@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Calculator } from 'lucide-react';
-import './App.css';
 
 export default function TuckBoxCalculator() {
   const [width, setWidth] = useState('8');
@@ -155,10 +154,33 @@ function Section({ title, children }) {
 }
 
 function Dimension({ label, value }) {
+  const [copied, setCopied] = useState(false);
+  
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   return (
     <div className="flex justify-between items-center py-2 px-3 bg-gray-50 rounded">
       <span className="text-gray-700 font-medium">{label}:</span>
-      <span className="text-gray-900 font-mono">{value}</span>
+      <span 
+        className="text-gray-900 font-mono cursor-pointer hover:bg-orange-100 px-2 py-1 rounded transition-colors relative"
+        onClick={() => copyToClipboard(value)}
+        title="Click to copy"
+      >
+        {value}
+        {copied && (
+          <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+            Copied!
+          </span>
+        )}
+      </span>
     </div>
   );
 }
